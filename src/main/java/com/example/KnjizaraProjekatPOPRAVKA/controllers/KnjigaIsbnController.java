@@ -71,7 +71,7 @@ public class KnjigaIsbnController implements ServletContextAware {
 							
 							List<Knjiga> knjige = knjigaService.find3(naziv, isbn, izdavackaKuca, autor, kratakOpis, cena, brojStranica, tipPoveza, pismo, jezik, prosecnaOcena,brojPrimeraka, zanrId);
 							List<Zanr> zanrovi = zanrService.findAll();
-
+				
 														
 							ModelAndView rezultat = new ModelAndView("knjigeisbn");
 							rezultat.addObject("knjige", knjige);

@@ -82,26 +82,10 @@ public class KnjigaController implements ServletContextAware {
 							 @RequestParam(required=false) Integer zanrId,
 							 @RequestParam(required=false) Integer brojPrimeraka,
 
-							 HttpSession session) throws IOException{
+							 HttpSession session) throws IOException{		
 							
-		
-							/*List<Knjiga> knjige = knjigaService.find(naziv, cena, autor, jezik);
-							 * 
-						
-							 */
-		
-							//Ovo
-							//List<Knjiga> knjige = knjigaService.findVerzija2(naziv, isbn, izdavackaKuca, autor, godinaIzdavanja, kratakOpis, cena, brojStranica, tipPoveza, pismo, jezik, prosecnaOcena);
-							
-							
-							
-							//List<Knjiga> knjige = knjigaService.find(id, naziv, isbn, izdavackaKuca, autor, godinaIzdavanja, kratakOpis, cena, brojStranica, tipPoveza, pismo, jezik, prosecnaOcena);
-						//List<Knjiga> knjige = knjigaService.findAll();
 							List<Knjiga> knjige = knjigaService.find2(naziv, isbn, izdavackaKuca, autor, kratakOpis, cenaOd, cenaDo, brojStranica, tipPoveza, pismo, jezik, prosecnaOcena,brojPrimeraka, zanrId);
 							List<Zanr> zanrovi = zanrService.findAll();
-
-							
-							//List<Knjiga> knjige = knjigaService.findVerzija2(id, naziv, isbn, izdavackaKuca, autor, godinaIzdavanja, kratakOpis, cena, brojStranica, tipPoveza, pismo, jezik, prosecnaOcena);
 							
 							ModelAndView rezultat = new ModelAndView("knjige");
 							rezultat.addObject("knjige", knjige);
@@ -197,7 +181,6 @@ public class KnjigaController implements ServletContextAware {
 					
 					knjiga.setId(id);
 					knjiga.setNaziv(naziv);
-					//knjiga.setIsbn(isbn); //Administrator ne moze da menja ispb
 					knjiga.setIzdavackaKuca(izdavackaKuca);
 					knjiga.setAutor(autor);
 					knjiga.setGodinaIzdavanja(godinaIzdavanja);
@@ -207,7 +190,6 @@ public class KnjigaController implements ServletContextAware {
 					knjiga.setTipPoveza(tipPoveza);
 					knjiga.setPismo(pismo);
 					knjiga.setJezik(jezik);
-					//knjiga.setProsecnaOcena(prosecnaOcena); //Aplikacija resava(Barem bi trebalo)
 					
 					knjigaService.update(knjiga);
 					response.sendRedirect(baseURL+"Knjige");
@@ -237,7 +219,6 @@ public class KnjigaController implements ServletContextAware {
 					}
 					
 					knjiga.setBrojPrimeraka(knjiga.getBrojPrimeraka() + brojPrimeraka);
-					//knjiga.setProsecnaOcena(prosecnaOcena); //Aplikacija resava(Barem bi trebalo)
 					
 					knjigaService.update2(knjiga);
 					response.sendRedirect(baseURL+"Knjige");
@@ -269,7 +250,6 @@ public class KnjigaController implements ServletContextAware {
 		}
 		
 		Knjiga knjiga = new Knjiga(naziv,isbn,izdavackaKuca,autor, godinaIzdavanja, kratakOpis, cena, brojStranica, tipPoveza, pismo, jezik, prosecnaOcena,1);
-		//Setujem na kraju 1 npr kada admin kreira novu knjigu po defaultu postoji samo jedna pa ako zeli nek naruci vise
 		knjiga.setZanrovi(zanrService.find(zanrIds));
 
 		knjigaService.save(knjiga);
@@ -281,7 +261,7 @@ public class KnjigaController implements ServletContextAware {
 	@PostMapping(value="/Delete")
 	public void Delete(@RequestParam int id, 
 			HttpSession session, HttpServletResponse response) throws IOException {
-		// autentikacija, autorizacija
+		
 		Korisnik prijavljeniKorisnik = (Korisnik) session.getAttribute(KorisnikController.KORISNIK_KEY);
 		if (prijavljeniKorisnik == null) {
 			response.sendRedirect(baseURL + "Knjige");

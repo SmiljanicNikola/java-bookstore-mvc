@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.KnjizaraProjekatPOPRAVKA.dao.KorisnickaKorpaDAO;
-import com.example.KnjizaraProjekatPOPRAVKA.model.Komentar;
 import com.example.KnjizaraProjekatPOPRAVKA.model.KorisnickaKorpa;
 import com.example.KnjizaraProjekatPOPRAVKA.service.KorisnickaKorpaService;
 
@@ -32,10 +31,6 @@ public class DatabaseKorisnickaKorpaService implements KorisnickaKorpaService {
 		return korisnickaKorpa;
 	}
 
-	@Override
-	public List<KorisnickaKorpa> save(List<KorisnickaKorpa> korisnickeKorpe) {
-		return null;
-	}
 
 	@Override
 	public KorisnickaKorpa update(KorisnickaKorpa korisnickaKorpa) {
@@ -43,10 +38,6 @@ public class DatabaseKorisnickaKorpaService implements KorisnickaKorpaService {
 		return korisnickaKorpa;
 	}
 
-	@Override
-	public List<KorisnickaKorpa> update(List<KorisnickaKorpa> korisnickeKorpe) {
-		return null;
-	}
 
 	@Override
 	public KorisnickaKorpa delete(Integer id) {
@@ -57,17 +48,6 @@ public class DatabaseKorisnickaKorpaService implements KorisnickaKorpaService {
 		return korisnickaKorpa;
 	}
 
-	@Override
-	public List<Komentar> find(int id, int knjigaId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<KorisnickaKorpa> find(int knjigaId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public int deleteAll() {

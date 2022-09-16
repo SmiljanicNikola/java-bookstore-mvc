@@ -48,35 +48,5 @@ public class ZanrDAOImpl implements ZanrDAO {
 		String sql = "SELECT id, ime, opis FROM zanrovi";
 		return jdbcTemplate.query(sql, new ZanrRowMapper());
 	}
-
-	@Override
-	public List<Zanr> find(String ime) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int save(Zanr zanr) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int[] save(ArrayList<Zanr> zanrovi) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int update(Zanr zanr) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int delete(Integer id) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 	
 }

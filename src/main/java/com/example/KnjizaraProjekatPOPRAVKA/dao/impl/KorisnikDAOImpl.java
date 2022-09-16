@@ -190,10 +190,6 @@ public class KorisnikDAOImpl implements KorisnikDAO {
 		
 	}
 
-	@Override
-	public void delete(String korisnickoIme) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 }

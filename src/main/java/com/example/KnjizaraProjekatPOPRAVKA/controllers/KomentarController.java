@@ -121,7 +121,6 @@ public class KomentarController implements ServletContextAware{
 	public void create(@RequestParam(required=false)Integer id,
 			@RequestParam String tekstKomentara,
 			@RequestParam Integer ocena,
-			//@RequestParam @DateTimeFormat(iso=DateTimeFormat.ISO.DATE) LocalDate datumPostavljanja,
 			@RequestParam String autorOznaka,
 			@RequestParam Integer knjigaId,
 			@RequestParam(defaultValue="Na cekanju") String status,
@@ -208,7 +207,7 @@ public class KomentarController implements ServletContextAware{
 						response.sendRedirect(baseURL+"Komentari");
 						
 			}
-
+	
 }
 			
 			

@@ -35,47 +35,11 @@ public class DatabaseKomentarService implements KomentarService {
 		return komentar;
 	}
 
-	@Override
-	public List<Komentar> save(List<Komentar> komentari) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public Komentar update(Komentar komentar) {
 		komentarDAO.update(komentar);
 		return komentar;
-	}
-
-	@Override
-	public List<Komentar> update(List<Komentar> komentari) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Komentar delete(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void delete(List<String> id) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public List<Komentar> find(int id, String tekstKomentara, int ocena, LocalDate datumPostavljanja, String autorOznaka,
-			int knjigaId, String status) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Komentar> findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -90,6 +54,8 @@ public class DatabaseKomentarService implements KomentarService {
 		return odgovarajuci;
 
 	}
+
+
 
 
 }

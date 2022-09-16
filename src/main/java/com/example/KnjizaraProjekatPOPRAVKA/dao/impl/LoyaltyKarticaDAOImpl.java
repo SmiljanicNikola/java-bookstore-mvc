@@ -15,7 +15,6 @@ import org.springframework.stereotype.Repository;
 import com.example.KnjizaraProjekatPOPRAVKA.dao.KorisnikDAO;
 import com.example.KnjizaraProjekatPOPRAVKA.dao.LoyaltyKarticaDAO;
 import com.example.KnjizaraProjekatPOPRAVKA.model.Korisnik;
-import com.example.KnjizaraProjekatPOPRAVKA.model.ListaZelja;
 import com.example.KnjizaraProjekatPOPRAVKA.model.LoyaltyKartica;
 
 
@@ -65,17 +64,6 @@ public class LoyaltyKarticaDAOImpl implements LoyaltyKarticaDAO {
 		return jdbcTemplate.query(sql, new LoyaltyKarticeRowMapper());
 	}
 
-	@Override
-	public List<LoyaltyKartica> find(int id, String popust, int brPoena, String vlasnikOznaka, String status) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<LoyaltyKartica> findVerzija2(HashMap<String, Object> mapaArgumenata) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public void save(LoyaltyKartica loyaltyKartica) {
@@ -91,11 +79,6 @@ public class LoyaltyKarticaDAOImpl implements LoyaltyKarticaDAO {
 		
 	}
 
-	@Override
-	public int delete(int id) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 
 	@Override

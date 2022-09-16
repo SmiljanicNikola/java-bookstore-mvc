@@ -65,23 +65,6 @@ public class ListaZeljaDAOImpl implements ListaZeljaDAO {
 
 	}
 
-	@Override
-	public List<ListaZelja> find(int id, int knjigaId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<ListaZelja> find(int knjigaId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<ListaZelja> find(String vlasnikListeOznaka) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public void save(ListaZelja listaZelja) {

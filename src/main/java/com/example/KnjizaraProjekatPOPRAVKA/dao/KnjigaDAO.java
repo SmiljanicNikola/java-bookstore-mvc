@@ -13,20 +13,13 @@ public interface KnjigaDAO {
 	
 	
 	public Knjiga findOne(String naziv);
-	
-
-	public Knjiga findOne(long isbn);
-	
+		
 	
 	public List<Knjiga> findAll();
 	
 	
 	public List<Knjiga> find(String naziv, Long isbn, String izdavackaKuca, String autor, LocalDate godinaIzdavanja,
 			String kratakOpis, float cena, int brojStranica, String tipPoveza, String pismo, String jezik, float prosecnaOcena);
-	
-	
-	public List<Knjiga> find2(String naziv, Long isbn, String izdavackaKuca, String autor, LocalDate godinaIzdavanja,
-			String kratakOpis, float cena, int brojStranica, String tipPoveza, String pismo, String jezik, float prosecnaOcena, Integer zanrId);
 	
 	
 	public List<Knjiga> findVerzija2(HashMap<String, Object> mapaArgumenata);

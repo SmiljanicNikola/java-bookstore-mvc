@@ -1,10 +1,7 @@
 package com.example.KnjizaraProjekatPOPRAVKA.dao.impl;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,10 +12,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.PreparedStatementCreator;
-import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Repository;
 
 import com.example.KnjizaraProjekatPOPRAVKA.dao.KnjigaDAO;
@@ -62,7 +56,7 @@ public class KupovinaDAOImpl implements KupovinaDAO  {
 			
 			Kupovina kupovina = kupovine.get(id);
 			kupovina = new Kupovina(id,knjiga, ukupnaCena, datumKupovine, musterija, brojKupljenihKnjiga);
-				kupovine.put(kupovina.getId(), kupovina); // dodavanje u kolekciju
+				kupovine.put(kupovina.getId(), kupovina);
 			return kupovina;
 				
 				}
@@ -86,23 +80,6 @@ public class KupovinaDAOImpl implements KupovinaDAO  {
 		return jdbcTemplate.query(sql, new KupovineRowMapper());
 	}
 
-	@Override
-	public List<Kupovina> find(int id, String musterijaOznaka) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Kupovina> find(int knjigaId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Kupovina> find(String musterijaOznaka) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public void save(Kupovina kupovina) {		
@@ -129,32 +106,6 @@ public class KupovinaDAOImpl implements KupovinaDAO  {
 		jdbcTemplate.update(sql, kupovina.getId(), kupovina.getKnjiga().getId(), kupovina.getUkupnaCena(), kupovina.getDatumKupovine() , kupovina.getMusterija().getKorisnickoIme(), kupovina.getBrojKupljenihKnjiga());
 			}
 
-		
-		/*GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
-		boolean uspeh = jdbcTemplate.update(preparedStatementCreator, keyHolder) == 1;
-		if (uspeh) {
-			String sql = "INSERT INTO kupovinaknjiga (kupovinaid, knjigeid) VALUES (?, ?)";
-			for (Knjiga itKnjiga: kupovina.getKupljeneKnjige()) {	
-				uspeh = uspeh && jdbcTemplate.update(sql, keyHolder.getKey(), itKnjiga.getId()) == 1;
-			}
-		}
-		return uspeh?1:0;
-		//return;
-		
-		
-	}*/
-
-
-	@Override
-	public int update(Kupovina kupovina) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void delete(Integer id) {
-		// TODO Auto-generated method stub
-	}
 
 	@Override
 	public Kupovina findOne(LocalDate datumKupovine) {

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class InitServletContextListener implements ServletContextListener {
+	
     public void contextInitialized(ServletContextEvent event)  {
     	System.out.println("Azuriranje konteksta ServletContextListener...");
     	

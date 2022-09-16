@@ -16,15 +16,6 @@ public interface ListaZeljaDAO {
 	
 	public List<ListaZelja> findAll();
 	
-		
-	public List<ListaZelja> find(int id,int knjigaId);
-	
-	
-	public List<ListaZelja> find(int knjigaId);
-	
-	
-	public List<ListaZelja> find(String vlasnikListeOznaka);
-	
 
 	public void save(ListaZelja listaZelja);
 	

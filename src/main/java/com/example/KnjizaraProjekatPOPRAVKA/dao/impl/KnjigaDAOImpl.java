@@ -40,31 +40,6 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 	private ZanrDAO zanrDAO; 
 	
 	
-	/*private class KorisnikRowMapper implements RowMapper<Knjiga>{
-
-		@Override
-		public Knjiga mapRow(ResultSet rs, int rowNum) throws SQLException {
-			int index=1;
-			int id = rs.getInt(index++);
-			String naziv = rs.getString(index++);
-			long isbn = rs.getLong(index++);
-			String izdavackaKuca = rs.getString(index++);
-			String autor = rs.getString(index++);
-			LocalDate godinaIzdavanja = rs.getDate(index++).toLocalDate();
-			String kratakOpis = rs.getString(index++);
-			Float cena = rs.getFloat(index++);
-			int brojStranica = rs.getInt(index++);
-			String tipPoveza = rs.getString(index++);
-			String pismo = rs.getString(index++);
-			String jezik = rs.getString(index++);
-			float prosecnaOcena = rs.getFloat(index++);
-
-			Knjiga knjiga = new Knjiga(id, naziv, isbn, izdavackaKuca, autor, godinaIzdavanja, kratakOpis, cena, brojStranica, tipPoveza, pismo, jezik, prosecnaOcena);
-			return knjiga;
-		}
-		
-	}*/
-	
 	private class KnjigaRowCallBackHandler implements RowCallbackHandler {
 
 		private Map<Integer, Knjiga> knjige = new LinkedHashMap<>();
@@ -94,7 +69,7 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 			Knjiga knjiga = knjige.get(id);
 			if (knjiga == null) {
 				knjiga = new Knjiga(id, naziv, isbn, izdavackaKuca, autor, godinaIzdavanja, kratakOpis, cena, brojStranica, tipPoveza,pismo, jezik, prosecnaOcena, brojPrimeraka);
-				knjige.put(knjiga.getId(), knjiga); // dodavanje u kolekciju
+				knjige.put(knjiga.getId(), knjiga);
 				knjiga.getZanrovi().add(zanr);
 			}
 			
@@ -119,20 +94,12 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 	
 
 	@Override
-	public Knjiga findOne(long isbn) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-
-	@Override
 	public List<Knjiga> findAll() {
 		String sql = "SELECT k.id, k.naziv, k.isbn, k.izdavackaKuca, k.autor, k.godinaIzdavanja, k.kratakOpis, k.cena, k.brojStranica, k.tipPoveza, k.pismo, k.jezik, k.prosecnaOcena, k.brojPrimeraka,z.id, z.ime from knjige k " +
 					"LEFT JOIN knjigazanr kz ON kz.knjigaid = k.id " +
 					"LEFT JOIN zanrovi z ON kz.zanrid = z.id " +
 					"ORDER BY k.id ";
-		//String sql = "SELECT k.id, k.naziv, k.isbn, k.izdavackaKuca, k.autor, k.godinaIzdavanja, k.kratakOpis, k.cena, k.brojStranica, k.tipPoveza, k.pismo, k.jezik, k.prosecnaOcena, k.zanrId from knjige k ";
-		//return jdbcTemplate.query(sql, new KorisnikRowMapper());
+		
 		KnjigaRowCallBackHandler rowCallbackHandler = new KnjigaRowCallBackHandler();
 		jdbcTemplate.query(sql, rowCallbackHandler);
 
@@ -170,17 +137,12 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 	@Transactional
 	@Override
 	public int save(Knjiga knjiga) {		
-		/*String sql = "INSERT INTO knjige(id,naziv,isbn,izdavackaKuca,autor,godinaIzdavanja,kratakOpis,cena,brojStranica,tipPoveza,pismo,jezik,prosecnaOcena, ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
-		jdbcTemplate.update(sql, knjiga.getId(), knjiga.getNaziv(), knjiga.getIsbn(), knjiga.getIzdavackaKuca(), knjiga.getAutor(), knjiga.getGodinaIzdavanja(),
-				knjiga.getKratakOpis(),knjiga.getCena(),knjiga.getBrojStranica(),knjiga.getTipPoveza(), knjiga.getPismo(), knjiga.getJezik(), knjiga.getProsecnaOcena());*/
 		
 		PreparedStatementCreator preparedStatementCreator = new PreparedStatementCreator() {
 			
 			@Override
 			public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
 				String sql = "INSERT INTO knjige(id,naziv,isbn,izdavackaKuca,autor,godinaIzdavanja,kratakOpis,cena,brojStranica,tipPoveza,pismo,jezik,prosecnaOcena,brojPrimeraka) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-				/*jdbcTemplate.update(sql, knjiga.getId(), knjiga.getNaziv(), knjiga.getIsbn(), knjiga.getIzdavackaKuca(), knjiga.getAutor(), knjiga.getGodinaIzdavanja(),
-						knjiga.getKratakOpis(),knjiga.getCena(),knjiga.getBrojStranica(),knjiga.getTipPoveza(), knjiga.getPismo(), knjiga.getJezik(), knjiga.getProsecnaOcena());*/
 				
 				PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 				int index = 1;
@@ -597,14 +559,6 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 		return jdbcTemplate.query(sql, new KnjigaRowMapper(), listaArgumenata.toArray());
 		}
 
-
-	@Override
-	public List<Knjiga> find2(String naziv, Long isbn, String izdavackaKuca, String autor, LocalDate godinaIzdavanja,
-			String kratakOpis, float cena, int brojStranica, String tipPoveza, String pismo, String jezik,
-			float prosecnaOcena, Integer zanrId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }
 

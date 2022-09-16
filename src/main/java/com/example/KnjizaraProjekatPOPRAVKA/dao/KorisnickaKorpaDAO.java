@@ -14,12 +14,6 @@ public interface KorisnickaKorpaDAO {
 	public List<KorisnickaKorpa> findAll();
 		
 	
-	public List<KorisnickaKorpa> find(int id,int knjigaId);
-	
-	
-	public List<KorisnickaKorpa> find(int knjigaId);
-	
-	
 	public void save(KorisnickaKorpa korisnickaKorpa);
 	
 	

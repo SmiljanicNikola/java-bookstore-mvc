@@ -29,58 +29,11 @@ public class DatabaseKupovinaService implements KupovinaService {
 		return kupovinaDAO.findAll();
 	}
 
-	@Override
-	public Kupovina deleteAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public Kupovina save(Kupovina kupovina) {
 		kupovinaDAO.save(kupovina);
 		return kupovina;
-	}
-
-	@Override
-	public List<Kupovina> save(List<Kupovina> kupovine) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Kupovina update(Kupovina kupovina) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Kupovina> update(List<Kupovina> kupovine) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Kupovina delete(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Kupovina> find(int id, int knjigaId, String musterijaOznaka) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Kupovina> find(int knjigaId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Kupovina> find2(String musterijaOznaka) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override

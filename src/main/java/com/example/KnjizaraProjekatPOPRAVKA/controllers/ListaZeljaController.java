@@ -130,7 +130,7 @@ public class ListaZeljaController implements ServletContextAware {
 	@PostMapping(value="/Delete")
 	public void Delete(@RequestParam int id, 
 			HttpSession session, HttpServletResponse response) throws IOException {
-		// autentikacija, autorizacija
+
 		Korisnik prijavljeniKorisnik = (Korisnik) session.getAttribute(KorisnikController.KORISNIK_KEY);
 		if (prijavljeniKorisnik == null) {
 			response.sendRedirect(baseURL + "Knjige");

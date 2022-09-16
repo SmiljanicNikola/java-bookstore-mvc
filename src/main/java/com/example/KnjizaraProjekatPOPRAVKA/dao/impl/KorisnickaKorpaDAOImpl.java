@@ -2,7 +2,6 @@ package com.example.KnjizaraProjekatPOPRAVKA.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.example.KnjizaraProjekatPOPRAVKA.dao.KnjigaDAO;
 import com.example.KnjizaraProjekatPOPRAVKA.dao.KorisnickaKorpaDAO;
@@ -68,18 +66,7 @@ public class KorisnickaKorpaDAOImpl implements KorisnickaKorpaDAO {
 		return jdbcTemplate.query(sql, new KorisnickaKorpaRowMapper());
 	}
 
-	@Override
-	public List<KorisnickaKorpa> find(int id, int knjigaId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<KorisnickaKorpa> find(int knjigaId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public void save(KorisnickaKorpa korisnickaKorpa) {
 		String sql = "INSERT INTO korisnickakorpa(id, knjigaId, kolicina, vlasnikKorpeOznaka) VALUES (?,?,?,?)";

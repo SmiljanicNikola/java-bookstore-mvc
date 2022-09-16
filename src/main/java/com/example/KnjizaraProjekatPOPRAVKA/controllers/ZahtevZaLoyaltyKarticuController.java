@@ -90,12 +90,7 @@ public class ZahtevZaLoyaltyKarticuController implements ServletContextAware {
 			@RequestParam String status,
 			HttpSession session, HttpServletResponse response) throws IOException{
 		
-		/*if(vlasnikOznaka != prijavljeniKorisnik.getKorisnickoIme()) {
-			response.sendRedirect(baseURL);
-			return;
-			}
-			
-		session.setAttribute(KorisnikController.KORISNIK_KEY, prijavljeniKorisnik);	*/
+		
 		Korisnik vlasnik = korisnikService.findOne(vlasnikOznaka);
 		LoyaltyKartica kartica = loyaltyKarticaService.findOne(vlasnikOznaka);
 		if(kartica == null || kartica.getStatus().equalsIgnoreCase("Nije odobrena")) {
@@ -117,6 +112,7 @@ public class ZahtevZaLoyaltyKarticuController implements ServletContextAware {
 		LoyaltyKartica loyaltyKartica = new LoyaltyKartica(popust, brPoena, vlasnik, status);
 		loyaltyKarticaService.save(loyaltyKartica);
 		response.sendRedirect(baseURL);
+		
 		return null;
 
 		

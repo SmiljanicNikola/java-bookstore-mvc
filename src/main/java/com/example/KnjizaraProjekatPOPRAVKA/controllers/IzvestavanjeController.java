@@ -35,9 +35,6 @@ public class IzvestavanjeController implements ServletContextAware{
 	@Override
 	public void setServletContext(ServletContext servletContext) {
 		this.servletContext = servletContext;
-		
-		
-		
 	}
 	
 	@Autowired
@@ -69,16 +66,14 @@ public class IzvestavanjeController implements ServletContextAware{
 			@RequestParam(required=false) Integer brojKupljenihKnjiga,
 			HttpSession session) throws IOException{
 		
-			//List<Kupovina> kupovine = kupovinaService.findAll();
 			List<Kupovina> kupovine = kupovinaService.find2(datumKupovineOd,datumKupovineDo);
-			
 			
 			ModelAndView rezultat = new ModelAndView("izvestaj");
 			rezultat.addObject("kupovine", kupovine);
 			
 			return rezultat;
 		
-			}
+	}
 	
 	
 }

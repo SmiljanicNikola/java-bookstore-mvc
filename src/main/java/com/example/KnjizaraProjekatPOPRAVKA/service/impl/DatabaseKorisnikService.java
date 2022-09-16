@@ -39,39 +39,11 @@ public class DatabaseKorisnikService implements KorisnikService {
 		return korisnik;
 	}
 
-	@Override
-	public List<Korisnik> save(List<Korisnik> korisnici) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public Korisnik update(Korisnik korisnik) {
 		korisnikDAO.update(korisnik);
 		return korisnik;
-	}
-
-	@Override
-	public List<Korisnik> update(List<Korisnik> korisnici) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Korisnik delete(String korisnickoIme) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void delete(List<String> korisnickoIme) {
-		// TODO Auto-generated method stub		
-	}
-
-	@Override
-	public List<Korisnik> findByKorisnickoIme(String korisnickoIme) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override

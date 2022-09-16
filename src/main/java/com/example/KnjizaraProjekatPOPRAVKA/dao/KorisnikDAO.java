@@ -28,7 +28,5 @@ public interface KorisnikDAO {
 	
 	public void update(Korisnik korisnik);
 	
-	
-	public void delete(String korisnickoIme);
-	
+		
 }

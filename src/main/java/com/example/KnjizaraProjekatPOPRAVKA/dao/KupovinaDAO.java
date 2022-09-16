@@ -19,22 +19,7 @@ public interface KupovinaDAO {
 	public List<Kupovina> findAll();
 		
 	
-	public List<Kupovina> find(int id, String musterijaOznaka);
-	
-	
-	public List<Kupovina> find(int knjigaId);
-	
-	
-	public List<Kupovina> find(String musterijaOznaka);
-
-	
 	public void save(Kupovina kupovina);
-	
-	
-	public int update(Kupovina kupovina);
-	
-	
-	public void delete(Integer id);
 	
 	
 	public List<Kupovina> find(HashMap<String, Object> mapaArgumenata);

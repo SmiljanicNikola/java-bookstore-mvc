@@ -89,7 +89,6 @@ public class LoyaltyKarticaController implements ServletContextAware {
 			response.sendRedirect(baseURL + "index");
 			return null;
 		}
-		//ModelAndView rezultat = new ModelAndView("dodavanjeKnjige");
 		
 		return null;
 	}
@@ -103,12 +102,6 @@ public class LoyaltyKarticaController implements ServletContextAware {
 			//(defaultValue="Na cekanju")
 			@RequestParam String status,
 			HttpSession session, HttpServletResponse response) throws IOException{
-		//aut
-		//Korisnik prijavljeniKorisnik = (Korisnik) session.getAttribute(KorisnikController.KORISNIK_KEY);
-		/*if(prijavljeniKorisnik == null) {
-			response.sendRedirect(baseURL+ "index");
-			return;
-			}*/
 		
 		Korisnik prijavljeniKorisnik  = (Korisnik) session.getAttribute(KorisnikController.KORISNIK_KEY);
 		if(prijavljeniKorisnik == null){
@@ -158,6 +151,7 @@ public class LoyaltyKarticaController implements ServletContextAware {
 		localeResolver.setLocale(request, response, Locale.forLanguageTag("sr"));
 		
 		response.sendRedirect(baseURL+"LoyaltyKartice");
+		
 	}
 	
 	
@@ -168,6 +162,7 @@ public class LoyaltyKarticaController implements ServletContextAware {
 		localeResolver.setLocale(request, response, Locale.forLanguageTag("en"));
 		
 		response.sendRedirect(baseURL+"LoyaltyKartice");
+		
 	}
 	
 	
@@ -195,6 +190,6 @@ public class LoyaltyKarticaController implements ServletContextAware {
 						loyaltyKarticaService.update(kartica);
 						response.sendRedirect(baseURL+"LoyaltyKartice");
 						
-			}
+	}
 
 }

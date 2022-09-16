@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class InitHttpSessionListener implements HttpSessionListener {
+	
 	/** kod koji se izvrsava po kreiranju sesije */
 	public void sessionCreated(HttpSessionEvent event) {
 		System.out.println("Inicijalizacija sesisje HttpSessionListener...");

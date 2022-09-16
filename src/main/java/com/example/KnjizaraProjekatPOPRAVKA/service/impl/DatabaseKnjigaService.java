@@ -27,11 +27,6 @@ public class DatabaseKnjigaService implements KnjigaService {
 	}
 
 	@Override
-	public Knjiga findOne(long isbn) {
-		return null;
-	}
-
-	@Override
 	public List<Knjiga> findAll() {
 		return knjigaDAO.findAll();
 	}
@@ -43,20 +38,9 @@ public class DatabaseKnjigaService implements KnjigaService {
 	}
 
 	@Override
-	public List<Knjiga> save(List<Knjiga> knjige) {
-		return null;
-	
-	}
-
-	@Override
 	public Knjiga update(Knjiga knjiga) {
 		knjigaDAO.update(knjiga);
 		return knjiga;
-	}
-
-	@Override
-	public List<Knjiga> update(List<Knjiga> knjige) {
-		return null;
 	}
 
 	@Override
@@ -69,42 +53,11 @@ public class DatabaseKnjigaService implements KnjigaService {
 	}
 
 	@Override
-	public void delete(List<String> id) {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
 	public List<Knjiga> find(int id, String naziv, Long isbn, String izdavackaKuca, String autor,
 			LocalDate godinaIzdavanja, String kratakOpis, float cena, int brojStranica, String tipPoveza, String pismo,
 			String jezik, float prosecnaOcena) {
 				return null;
 		
-		/*List<Knjiga> knjige = knjigaDAO.findAll();
-		
-		if(naziv == null) {
-			naziv="";
-		}
-		if(isbn == null){
-			isbn = 0L;
-		}
-		if(izdavackaKuca == null) {
-			izdavackaKuca="";
-		}
-		if(autor == null) {
-			autor="";
-		}
-		if(godinaIzdavanja == null) {
-			godinaIzdavanja = "0";
-		}
-		*/
-		
-		//return knjigaDAO.find(id, naziv, isbn, izdavackaKuca, autor, godinaIzdavanja, kratakOpis, cena, brojStranica, tipPoveza, pismo, jezik, prosecnaOcena);
-	}
-
-	@Override
-	public List<Knjiga> findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -153,46 +106,6 @@ public class DatabaseKnjigaService implements KnjigaService {
 		}
 		return knjigaDAO.findVerzija2(mapaArgumenata);
 
-		/*HashMap<String, Object> mapaArgumenata = new HashMap<String,Object>();
-		
-		if(naziv!=null) 
-			mapaArgumenata.put("naziv", naziv);
-		
-		if(isbn!=null) 
-			mapaArgumenata.put("isbn", isbn);
-		
-		if(izdavackaKuca!=null) 
-			mapaArgumenata.put("izdavackaKuca", izdavackaKuca);
-		
-		if(autor!=null)
-			mapaArgumenata.put("autor", autor);
-		
-		if(godinaIzdavanja!=null) 
-			mapaArgumenata.put("godinaIzdavanja", godinaIzdavanja);
-		
-		if(kratakOpis!=null)
-			mapaArgumenata.put("kratakOpis", kratakOpis);
-		
-		if(cena!=null) 
-			mapaArgumenata.put("cena", cena);
-		
-		if(brojStranica!=null) 
-			mapaArgumenata.put("brojStranica", brojStranica);
-		
-		if(tipPoveza!=null) 
-			mapaArgumenata.put("tipPoveza", tipPoveza);
-		if(pismo!=null) 
-			
-			mapaArgumenata.put("pismo", pismo);
-		if(jezik!=null) 
-			
-			mapaArgumenata.put("jezik", jezik);
-		
-		if(prosecnaOcena!=null) 
-			mapaArgumenata.put("prosecnaOcena", prosecnaOcena);
-		
-		
-		return knjigaDAO.findVerzija2(mapaArgumenata);*/
 	}
 
 	@Override
@@ -274,7 +187,6 @@ public class DatabaseKnjigaService implements KnjigaService {
 
 		List<Knjiga> rezultat = new ArrayList<>();
 		for (Knjiga itKnjiga: knjige) {
-			// kriterijum pretrage
 			if (!itKnjiga.getNaziv().toLowerCase().contains(naziv.toLowerCase())) {
 				continue;
 			}
@@ -382,7 +294,7 @@ public class DatabaseKnjigaService implements KnjigaService {
 
 		List<Knjiga> rezultat = new ArrayList<>();
 		for (Knjiga itKnjiga: knjige) {
-			// kriterijum pretrage
+			
 			if (!itKnjiga.getNaziv().toLowerCase().contains(naziv.toLowerCase())) {
 				continue;
 			}
@@ -390,34 +302,6 @@ public class DatabaseKnjigaService implements KnjigaService {
 			if (!stringIsbn.toLowerCase().contains(isbn.toString())) {
 				continue;
 			}
-			/*if (!itKnjiga.getAutor().toLowerCase().contains(autor.toLowerCase())) {
-				continue;
-			}
-			if (!itKnjiga.getIzdavackaKuca().toLowerCase().contains(izdavackaKuca.toLowerCase())) {
-				continue;
-			}
-			if (!itKnjiga.getJezik().toLowerCase().contains(jezik.toLowerCase())) {
-				continue;
-			}
-			if (!itKnjiga.getKratakOpis().toLowerCase().contains(kratakOpis.toLowerCase())) {
-				continue;
-			}*/
-			/*String stringIsbn=String.valueOf(itKnjiga.getIsbn());
-			if (!stringIsbn.toLowerCase().contains(isbn.toString())) {
-				continue;
-			}*/
-			/*if (zanrId > 0) { // ako je žanr odabran
-				boolean pronadjen = false;
-				for (Zanr itZanr: itKnjiga.getZanrovi()) {
-					if (itZanr.getId() == zanrId) {
-						pronadjen = true;
-						break;
-					}
-				}
-				if (!pronadjen) {
-					continue;
-				}
-			}*/
 		
 			rezultat.add(itKnjiga);	
 		}

@@ -34,47 +34,10 @@ public class DatabaseLoyaltyKarticaService implements LoyaltyKarticaService {
 	}
 
 	@Override
-	public List<LoyaltyKartica> save(List<LoyaltyKartica> komentari) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public LoyaltyKartica update(LoyaltyKartica loyaltyKartica) {
 		loyaltyKarticaDAO.update(loyaltyKartica);
 		return loyaltyKartica;
 	}
-
-	@Override
-	public List<LoyaltyKartica> update(List<LoyaltyKartica> komentari) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public LoyaltyKartica delete(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void delete(List<String> id) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public List<LoyaltyKartica> find(int id, String popust, int brPoena, String vlasnikOznaka, String status) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<LoyaltyKartica> findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 	@Override
 	public LoyaltyKartica findOne(String vlasnikOznaka) {

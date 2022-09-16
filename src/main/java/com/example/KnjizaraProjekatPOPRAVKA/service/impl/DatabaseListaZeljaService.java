@@ -28,35 +28,12 @@ public class DatabaseListaZeljaService implements ListaZeljaService {
 	}
 
 	@Override
-	public KorisnickaKorpa deleteAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public ListaZelja save(ListaZelja listaZelja) {
 		listaZeljaDAO.save(listaZelja);
 		return listaZelja;
 	}
 
-	@Override
-	public List<ListaZelja> save(List<ListaZelja> listeZelja) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ListaZelja update(ListaZelja listaZelja) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<ListaZelja> update(List<ListaZelja> listeZelja) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public ListaZelja delete(Integer id) {
 		ListaZelja listaZelja = findOne(id);
@@ -64,26 +41,6 @@ public class DatabaseListaZeljaService implements ListaZeljaService {
 			listaZeljaDAO.delete(id);
 		}
 		return listaZelja;
-	}
-
-	@Override
-	public List<ListaZelja> find(int id, int knjigaId, int vlasnikListeId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<ListaZelja> find(int knjigaId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
-
-	@Override
-	public List<ListaZelja> find2(String vlasnikListeOznaka) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

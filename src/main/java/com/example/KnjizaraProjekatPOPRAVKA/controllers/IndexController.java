@@ -49,6 +49,7 @@ public class IndexController implements ServletContextAware {
 		localeResolver.setLocale(request, response, Locale.forLanguageTag("en"));
 		
 		response.sendRedirect(baseURL);
+		
 	}
 
 	@Override
@@ -61,4 +62,5 @@ public class IndexController implements ServletContextAware {
 	public void init() {
 		baseURL = servletContext.getContextPath() + "/";
 	}
+	
 }

@@ -31,7 +31,6 @@ public class SecondConfiguration implements WebMvcConfigurer {
 		}
 		
 		public void init() {
-			//inicijalizacija
 			System.out.println("init method called");
 		}
 		

@@ -25,43 +25,7 @@ public class DatabaseZanrService implements ZanrService {
 	public List<Zanr> findAll() {
 		return zanrDAO.findAll();
 	}
-
-	@Override
-	public Zanr save(Zanr zanr) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Zanr> save(List<Zanr> zanrovi) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Zanr update(Zanr zanr) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Zanr> update(List<Zanr> zanrovi) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Zanr delete(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Zanr> find(String ime) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public List<Zanr> find(Integer[] ids) {
 		List<Zanr> rezultat = new ArrayList<>();

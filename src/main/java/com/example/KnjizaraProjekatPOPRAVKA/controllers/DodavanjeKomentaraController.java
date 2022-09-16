@@ -49,7 +49,6 @@ public class DodavanjeKomentaraController implements ServletContextAware {
 	@Override
 	public void setServletContext(ServletContext servletContext) {
 		// TODO Auto-generated method stub
-		
 	}
 	
 	@GetMapping
@@ -62,18 +61,15 @@ public class DodavanjeKomentaraController implements ServletContextAware {
 			@RequestParam(required=false) Integer knjigaId,
 			@RequestParam(required=false) String status,
 			HttpSession session) throws IOException{
-		
 			
 			Korisnik prijavljeniKorisnik = (Korisnik) session.getAttribute(KorisnikController.KORISNIK_KEY);
-			//Knjiga izabranaKnjiga = knjigaService.findOne(knjigaId);
 			
 			ModelAndView rezultat = new ModelAndView("dodavanjeKomentara");
 			rezultat.addObject("prijavljeniKorisnik", prijavljeniKorisnik);
-			//rezultat.addObject("izabranaKnjiga", izabranaKnjiga);
 		
 			return rezultat;
 		
-			}
+	}
 	
 	@GetMapping(value="/Create")
 	public String create(HttpSession session, HttpServletResponse response) throws IOException{
